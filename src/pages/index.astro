@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { KendraGenerator } from '../components/KendraGenerator';
+import { SubhaVelawaFinder } from '../components/SubhaVelawaFinder';
+import { PorondamMatcher } from '../components/PorondamMatcher';
+import { FaqSection } from '../components/FaqSection';
+import { TRANSLATIONS } from '../lib/translations';
+import { Sparkles, ShieldCheck, Heart, Compass, CheckCircle2, Star, Clock, BookOpen } from 'lucide-react';
+
+const t = TRANSLATIONS.si;
+---
+
+<BaseLayout
+  lang="si"
+  title="කේන්දරය (Kendaraya) | Free 100% Client-Side Sinhala Astrology & Horoscope Engine"
+  description="A zero-server, privacy-first Vedic and Sinhala astrology engine. Calculate Kendra birth charts, Lagna, Rashi, and 20 Porondam marriage compatibility entirely locally in the browser."
+  canonicalUrl="https://kendaraya.github.io/"
+>
+  {/* Hero Section */}
+  <section class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#757D6F]/25 dark:border-[#757D6F]/30">
+    <div class="absolute inset-0 -z-10 pointer-events-none opacity-40 dark:opacity-20">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-linear-to-tr from-[#6D0808]/25 via-[#8C1414]/15 to-[#EEEAD7] dark:from-[#6D0808]/40 dark:to-[#2D0000] rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      {/* Privacy & Free Badge */}
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6D0808]/10 dark:bg-[#6D0808]/30 border border-[#6D0808]/30 text-[#6D0808] dark:text-[#EEEAD7] text-xs sm:text-sm font-semibold shadow-2xs">
+        <Sparkles class="w-4 h-4 text-[#6D0808] dark:text-[#EEEAD7]" />
+        <span>{t.heroBadge}</span>
+      </div>
+
+      {/* Main Headline */}
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#2D0000] dark:text-[#EEEAD7] leading-tight">
+        {t.heroTitle} <br class="hidden sm:inline" />
+        <span class="bg-linear-to-r from-[#6D0808] via-[#8C1414] to-[#6D0808] dark:from-[#FFA6A6] dark:via-[#EEEAD7] dark:to-[#FFA6A6] bg-clip-text text-transparent">
+          {t.heroHighlight}
+        </span>
+      </h1>
+
+      {/* Subtitle */}
+      <p class="max-w-3xl mx-auto text-base sm:text-lg text-[#4D453C] dark:text-[#D5D0BC] leading-relaxed font-normal">
+        {t.heroDesc}
+      </p>
+
+      {/* Quick Jump Buttons */}
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="#kendra-calculator"
+          class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#6D0808] hover:bg-[#520606] text-[#EEEAD7] font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all flex items-center gap-2 active:scale-95"
+        >
+          <Compass class="w-5 h-5" />
+          <span>කේන්දරය හදන්න</span>
+        </a>
+
+        <a
+          href="#subha-velawa-section"
+          class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#757D6F]/20 dark:bg-[#757D6F]/30 hover:bg-[#757D6F]/30 text-[#2D0000] dark:text-[#EEEAD7] border border-[#757D6F]/35 font-semibold text-sm sm:text-base shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 active:scale-95"
+        >
+          <Clock class="w-5 h-5 text-[#6D0808] dark:text-[#EEEAD7]" />
+          <span>සුබ වේලාවන්</span>
+        </a>
+
+        <a
+          href="#porondam-section"
+          class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#FAF8F1] dark:bg-[#1E0000] hover:bg-[#EEEAD7] text-[#2D0000] dark:text-[#EEEAD7] border border-[#757D6F]/35 font-semibold text-sm sm:text-base shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 active:scale-95"
+        >
+          <Heart class="w-5 h-5 text-[#6D0808]" />
+          <span>විසි පොරොන්දම්</span>
+        </a>
+      </div>
+
+      {/* Trust Highlights */}
+      <div class="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-[#757D6F] dark:text-[#C5BFAC]">
+        <span class="flex items-center gap-1.5">
+          <ShieldCheck class="w-4 h-4 text-[#6D0808] dark:text-[#EEEAD7]" />
+          Zero-Server Database Uploads
+        </span>
+        <span class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-[#6D0808] dark:text-[#EEEAD7]" />
+          Chitra Paksha / Lahiri Ayanamsa
+        </span>
+        <span class="flex items-center gap-1.5">
+          <Star class="w-4 h-4 text-[#6D0808] dark:text-[#EEEAD7]" />
+          All 25 Sri Lankan Districts
+        </span>
+      </div>
+    </div>
+  </section>
+
+  {/* Main Container */}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+    
+    {/* Accessible Breadcrumbs Navigation */}
+    <nav aria-label="Breadcrumb" class="pb-2 border-b border-[#757D6F]/15">
+      <ol class="flex flex-wrap items-center gap-2 text-xs text-[#757D6F] dark:text-[#C5BFAC]">
+        <li>
+          <a href="/" class="hover:text-[#6D0808] dark:hover:text-[#EEEAD7] transition-colors flex items-center gap-1 font-medium">
+            <Compass class="w-3.5 h-3.5 text-[#6D0808] dark:text-[#EEEAD7]" />
+            <span>මුල් පිටුව</span>
+          </a>
+        </li>
+        <li aria-hidden="true" class="opacity-40">/</li>
+        <li>
+          <a href="#kendra-calculator" class="hover:text-[#6D0808] dark:hover:text-[#EEEAD7] transition-colors font-medium">
+            ජන්ම කේන්දරය
+          </a>
+        </li>
+        <li aria-hidden="true" class="opacity-40">/</li>
+        <li>
+          <a href="#subha-velawa-section" class="hover:text-[#6D0808] dark:hover:text-[#EEEAD7] transition-colors font-medium">
+            සුබ වේලාවන්
+          </a>
+        </li>
+        <li aria-hidden="true" class="opacity-40">/</li>
+        <li>
+          <a href="#porondam-section" class="hover:text-[#6D0808] dark:hover:text-[#EEEAD7] transition-colors font-medium">
+            විසි පොරොන්දම්
+          </a>
+        </li>
+        <li aria-hidden="true" class="opacity-40">/</li>
+        <li class="font-bold text-[#2D0000] dark:text-[#EEEAD7]" aria-current="page">
+          <span>නොමිලේ ජ්‍යොතිෂ මෙවලම්</span>
+        </li>
+      </ol>
+    </nav>
+
+    {/* ========================================================================= */}
+    {/* SECTION 01: KENDRA GENERATOR                                              */}
+    {/* ========================================================================= */}
+    <section id="kendra-calculator" class="scroll-mt-24 space-y-6">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6D0808]/10 dark:bg-[#6D0808]/30 border border-[#6D0808]/30 text-[#6D0808] dark:text-[#EEEAD7] text-xs font-bold tracking-wider uppercase">
+          <Compass class="w-3.5 h-3.5 text-[#6D0808] dark:text-[#EEEAD7]" />
+          <span>අංක 01 • ජන්ම කේන්දර සටහන</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-[#2D0000] dark:text-[#EEEAD7]">
+          සාම්ප්‍රදායික කේන්දරය හා නවග්‍රහ පිහිටීම්
+        </h2>
+        <p class="text-sm sm:text-base text-[#4D453C] dark:text-[#D5D0BC]">
+          ඔබගේ උපන් විස්තර අනුව 12 භාව දියමන්ති කේන්දරය, ආරෝහණ ලග්නය, චන්ද්‍ර රාශිය සහ ග්‍රහ පිහිටීම් ක්ෂණිකව ගණනය කරන්න.
+        </p>
+      </div>
+
+      <div class="rounded-3xl p-4 sm:p-8 bg-[#FAF8F1]/80 dark:bg-[#280202]/70 border border-[#757D6F]/25 dark:border-[#757D6F]/35 shadow-sm backdrop-blur-xs">
+        <KendraGenerator client:load lang="si" />
+      </div>
+    </section>
+
+    {/* Section Divider */}
+    <div class="relative flex items-center justify-center my-6 py-2" aria-hidden="true">
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+      <div class="px-5 flex items-center gap-2.5 text-[#6D0808] dark:text-[#EEEAD7]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+        <span class="w-3 h-3 rotate-45 border-2 border-[#6D0808] dark:border-[#EEEAD7] bg-[#EEEAD7] dark:bg-[#2D0000]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+      </div>
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+    </div>
+
+    {/* ========================================================================= */}
+    {/* SECTION 02: SUBHA VELAWA & RAHU KALAYA                                     */}
+    {/* ========================================================================= */}
+    <section id="subha-velawa-section" class="scroll-mt-24 space-y-6">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#757D6F]/20 dark:bg-[#757D6F]/30 border border-[#757D6F]/40 text-[#2D0000] dark:text-[#EEEAD7] text-xs font-bold tracking-wider uppercase">
+          <Clock class="w-3.5 h-3.5 text-[#6D0808] dark:text-[#EEEAD7]" />
+          <span>අංක 02 • සුබ වේලාවන් සහ හෝරාවන්</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-[#2D0000] dark:text-[#EEEAD7]">
+          වැඩ ඇල්ලීමට සුබ වේලාවන් සහ රාහු කාලය
+        </h2>
+        <p class="text-sm sm:text-base text-[#4D453C] dark:text-[#D5D0BC]">
+          දවසේ පැය 12 හෝරා චක්‍රය, අසුබ රාහු කාලය, මරු සිටින දිශාව සහ වැඩ ඇරඹීමට ප්‍රශස්තම සුබ මුහුර්ථ.
+        </p>
+      </div>
+
+      <div class="rounded-3xl p-4 sm:p-8 bg-[#FAF8F1]/80 dark:bg-[#280202]/70 border border-[#757D6F]/25 dark:border-[#757D6F]/35 shadow-sm backdrop-blur-xs">
+        <SubhaVelawaFinder client:load lang="si" />
+      </div>
+    </section>
+
+    {/* Section Divider */}
+    <div class="relative flex items-center justify-center my-6 py-2" aria-hidden="true">
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+      <div class="px-5 flex items-center gap-2.5 text-[#6D0808] dark:text-[#EEEAD7]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+        <span class="w-3 h-3 rotate-45 border-2 border-[#6D0808] dark:border-[#EEEAD7] bg-[#EEEAD7] dark:bg-[#2D0000]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+      </div>
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+    </div>
+
+    {/* ========================================================================= */}
+    {/* SECTION 03: 20 PORONDAM MARRIAGE MATCHER                                  */}
+    {/* ========================================================================= */}
+    <section id="porondam-section" class="scroll-mt-24 space-y-6">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6D0808]/10 dark:bg-[#6D0808]/30 border border-[#6D0808]/30 text-[#6D0808] dark:text-[#EEEAD7] text-xs font-bold tracking-wider uppercase">
+          <Heart class="w-3.5 h-3.5 text-[#6D0808] dark:text-[#EEEAD7]" />
+          <span>අංක 03 • විසි පොරොන්දම් ගැලපීම</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-[#2D0000] dark:text-[#EEEAD7]">
+          විවාහ විසි (20) පොරොන්දම් පරීක්ෂාව
+        </h2>
+        <p class="text-sm sm:text-base text-[#4D453C] dark:text-[#D5D0BC]">
+          මනාලයා හා මනාලියගේ ජන්ම නැකත් හා පාද ගලපා සාම්ප්‍රදායික විසි පොරොන්දම් ලකුණු සහ දෝෂ වාර්තාව ක්ෂණිකව ලබාගන්න.
+        </p>
+      </div>
+
+      <div class="rounded-3xl p-4 sm:p-8 bg-[#FAF8F1]/80 dark:bg-[#280202]/70 border border-[#757D6F]/25 dark:border-[#757D6F]/35 shadow-sm backdrop-blur-xs">
+        <PorondamMatcher client:load lang="si" />
+      </div>
+    </section>
+
+    {/* Section Divider */}
+    <div class="relative flex items-center justify-center my-6 py-2" aria-hidden="true">
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+      <div class="px-5 flex items-center gap-2.5 text-[#6D0808] dark:text-[#EEEAD7]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+        <span class="w-3 h-3 rotate-45 border-2 border-[#6D0808] dark:border-[#EEEAD7] bg-[#EEEAD7] dark:bg-[#2D0000]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+      </div>
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+    </div>
+
+    {/* ========================================================================= */}
+    {/* SECTION 04: ASTROLOGICAL GUIDE & SCIENCE                                   */}
+    {/* ========================================================================= */}
+    <section id="astrology-guide" class="scroll-mt-24 space-y-6">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#757D6F]/20 dark:bg-[#757D6F]/30 border border-[#757D6F]/40 text-[#2D0000] dark:text-[#EEEAD7] text-xs font-bold tracking-wider uppercase">
+          <BookOpen class="w-3.5 h-3.5 text-[#6D0808] dark:text-[#EEEAD7]" />
+          <span>අංක 04 • ජ්‍යොතිෂ විද්‍යාත්මක පදනම</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2D0000] dark:text-[#EEEAD7]">
+          ශ්‍රී ලාංකේය සාම්ප්‍රදායික ජ්‍යොතිෂය සහ ලහිරි අයනාංශය
+        </h2>
+      </div>
+
+      <div class="bg-[#FAF8F1] dark:bg-[#280202] rounded-3xl border border-[#757D6F]/30 p-6 sm:p-10 shadow-xs">
+        <div class="max-w-3xl mx-auto space-y-4 text-center">
+          <p class="text-sm sm:text-base text-[#4D453C] dark:text-[#D5D0BC] leading-relaxed">
+            කේන්දරය (Kendaraya) සකස් කර ඇත්තේ ඉහළ නිරවද්‍යතාවයකින් යුත් තාරකා විද්‍යාත්මක ගණනය කිරීම් (VSOP87 හා ELP2000 planetary ephemeris) මත පදනම්වය. බටහිර නිවෘත (Tropical) රාශි චක්‍රයෙන් ලහිරි අයනාංශය අඩු කර සම්ප්‍රදායික නිරයන (Sidereal) රාශි චක්‍රයට ග්‍රහයන් ස්ථානගත කරන අතර, ශ්‍රී ලංකා සම්මත වේලාවට (UTC+05:30) අනුව අදාළ දිස්ත්‍රික්කයේ අක්ෂාංශ/දේශාංශ සැලකිල්ලට ගනිමින් නිවැරදි ආරෝහණ ලග්නය නිර්ණය කෙරේ.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-[#2D0000] dark:text-[#EEEAD7]">
+            <span class="px-3 py-1 rounded-full bg-white dark:bg-[#1E0000] border border-[#757D6F]/30">
+              ✓ 100% පරිගණක බ්‍රවුසරය තුළ ගණනය කිරීම
+            </span>
+            <span class="px-3 py-1 rounded-full bg-white dark:bg-[#1E0000] border border-[#757D6F]/30">
+              ✓ කිසිදු දත්තයක් සේවාදායකයන් වෙත නොයැවේ
+            </span>
+            <span class="px-3 py-1 rounded-full bg-white dark:bg-[#1E0000] border border-[#757D6F]/30">
+              ✓ දිස්ත්‍රික්ක 25 ම අඩංගු සිතියම් දත්ත
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section Divider */}
+    <div class="relative flex items-center justify-center my-6 py-2" aria-hidden="true">
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+      <div class="px-5 flex items-center gap-2.5 text-[#6D0808] dark:text-[#EEEAD7]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+        <span class="w-3 h-3 rotate-45 border-2 border-[#6D0808] dark:border-[#EEEAD7] bg-[#EEEAD7] dark:bg-[#2D0000]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#6D0808] dark:bg-[#EEEAD7]"></span>
+      </div>
+      <div class="grow border-t border-[#757D6F]/25 dark:border-[#757D6F]/35"></div>
+    </div>
+
+    {/* ========================================================================= */}
+    {/* SECTION 05: FREQUENTLY ASKED QUESTIONS (FAQ)                              */}
+    {/* ========================================================================= */}
+    <section id="faq-section" class="scroll-mt-24 space-y-6">
+      <div class="rounded-3xl p-4 sm:p-8 bg-[#FAF8F1]/80 dark:bg-[#280202]/70 border border-[#757D6F]/25 dark:border-[#757D6F]/35 shadow-sm backdrop-blur-xs">
+        <FaqSection client:visible lang="si" />
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

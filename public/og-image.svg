@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A0000"/>
+      <stop offset="50%" stop-color="#2D0000"/>
+      <stop offset="100%" stop-color="#150000"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C07B"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <linearGradient id="crimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C1414"/>
+      <stop offset="100%" stop-color="#6D0808"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#757D6F" stroke-width="0.5" stroke-opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#gridPattern)"/>
+
+  <!-- Subtle Ambient Glow -->
+  <circle cx="950" cy="315" r="280" fill="#6D0808" opacity="0.35" filter="blur(60px)"/>
+  <circle cx="250" cy="150" r="200" fill="#D4AF37" opacity="0.12" filter="blur(50px)"/>
+
+  <!-- Left Content Column -->
+  <g transform="translate(100, 110)">
+    <!-- Top Pill Badge -->
+    <rect x="0" y="0" width="380" height="38" rx="19" fill="#6D0808" fill-opacity="0.4" stroke="#D4AF37" stroke-width="1.2"/>
+    <text x="24" y="24" fill="#E5C07B" font-family="'Noto Sans Sinhala', 'Segoe UI', sans-serif" font-size="15" font-weight="bold" letter-spacing="1">
+      ✦ 100% CLIENT-SIDE SINHALA ASTROLOGY
+    </text>
+
+    <!-- Main Title (Sinhala & English) -->
+    <text x="0" y="115" fill="#EEEAD7" font-family="'Noto Sans Sinhala', 'Segoe UI', sans-serif" font-size="64" font-weight="900" letter-spacing="-1">
+      කේන්දරය <tspan fill="url(#goldGrad)">Kendaraya</tspan>
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="165" fill="#C5BFAC" font-family="'Noto Sans Sinhala', 'Segoe UI', sans-serif" font-size="22" font-weight="normal">
+      නොමිලේ ජන්ම කේන්දර සටහන, ලග්නය, චන්ද්‍ර රාශිය,
+    </text>
+    <text x="0" y="198" fill="#C5BFAC" font-family="'Noto Sans Sinhala', 'Segoe UI', sans-serif" font-size="22" font-weight="normal">
+      වැඩ ඇල්ලීමට සුබ වේලාවන් සහ විසි (20) පොරොන්දම් ගැලපීම.
+    </text>
+
+    <!-- 3 Core Features Badges -->
+    <g transform="translate(0, 255)">
+      <!-- Badge 1: Kendra -->
+      <rect x="0" y="0" width="170" height="44" rx="12" fill="#FAF8F1" fill-opacity="0.08" stroke="#757D6F" stroke-width="1"/>
+      <text x="20" y="27" fill="#EEEAD7" font-family="'Noto Sans Sinhala', sans-serif" font-size="15" font-weight="bold">
+        ☸ කොටු කේන්දරය
+      </text>
+
+      <!-- Badge 2: Subha Hora -->
+      <rect x="185" y="0" width="165" height="44" rx="12" fill="#FAF8F1" fill-opacity="0.08" stroke="#757D6F" stroke-width="1"/>
+      <text x="205" y="27" fill="#EEEAD7" font-family="'Noto Sans Sinhala', sans-serif" font-size="15" font-weight="bold">
+        ⏱ සුබ වේලාවන්
+      </text>
+
+      <!-- Badge 3: 20 Porondam -->
+      <rect x="365" y="0" width="180" height="44" rx="12" fill="#FAF8F1" fill-opacity="0.08" stroke="#757D6F" stroke-width="1"/>
+      <text x="385" y="27" fill="#EEEAD7" font-family="'Noto Sans Sinhala', sans-serif" font-size="15" font-weight="bold">
+        ❤ විසි පොරොන්දම්
+      </text>
+    </g>
+
+    <!-- Trust Markers -->
+    <g transform="translate(0, 345)">
+      <text x="0" y="15" fill="#757D6F" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600">
+        ✓ Zero-Server Privacy Guarantee  •  ✓ Lahiri Ayanamsa  •  ✓ All 25 Districts  •  https://kendaraya.github.io
+      </text>
+    </g>
+  </g>
+
+  <!-- Right Visual: Traditional Kendra Diamond Chart Diagram -->
+  <g transform="translate(760, 115)">
+    <!-- Chart Outer Frame -->
+    <rect x="0" y="0" width="380" height="380" rx="16" fill="#FAF8F1" fill-opacity="0.03" stroke="#D4AF37" stroke-width="2"/>
+    
+    <!-- Outer Square -->
+    <rect x="30" y="30" width="320" height="320" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
+    
+    <!-- Diagonals -->
+    <line x1="30" y1="30" x2="350" y2="350" stroke="#D4AF37" stroke-width="2"/>
+    <line x1="350" y1="30" x2="30" y2="350" stroke="#D4AF37" stroke-width="2"/>
+    
+    <!-- Inner Diamond -->
+    <polygon points="190,30 350,190 190,350 30,190" fill="#6D0808" fill-opacity="0.25" stroke="#D4AF37" stroke-width="2.5"/>
+    
+    <!-- Central Lotus Ornament -->
+    <circle cx="190" cy="190" r="16" fill="#D4AF37" fill-opacity="0.3" stroke="#D4AF37" stroke-width="1.5"/>
+    <circle cx="190" cy="190" r="5" fill="#D4AF37"/>
+
+    <!-- House 1 (Lagna) Label -->
+    <rect x="165" y="85" width="50" height="24" rx="6" fill="#6D0808" stroke="#D4AF37" stroke-width="1"/>
+    <text x="190" y="101" fill="#EEEAD7" font-family="'Noto Sans Sinhala', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+      ලග්නය
+    </text>
+
+    <!-- Planetary Glyphs / Labels -->
+    <text x="190" y="60" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">1</text>
+    <text x="90" y="60" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">2</text>
+    <text x="55" y="100" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">3</text>
+    <text x="80" y="195" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">4</text>
+    <text x="55" y="290" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">5</text>
+    <text x="90" y="330" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">6</text>
+    <text x="190" y="330" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">7</text>
+    <text x="290" y="330" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">8</text>
+    <text x="325" y="290" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">9</text>
+    <text x="300" y="195" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">10</text>
+    <text x="325" y="100" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">11</text>
+    <text x="290" y="60" fill="#E5C07B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">12</text>
+  </g>
+</svg>

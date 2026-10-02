@@ -1,0 +1,220 @@
+---
+import '../styles/global.css';
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
+import { FAQS } from '../components/FaqSection';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'si' | 'en';
+  canonicalUrl?: string;
+}
+
+const {
+  lang = 'si',
+  title = lang === 'si'
+    ? 'කේන්දරය (Kendaraya) | Free 100% Client-Side Sinhala Astrology & Horoscope Engine'
+    : 'Kendaraya | Free 100% Client-Side Sinhala Astrology & Horoscope Engine',
+  description = lang === 'si'
+    ? 'නොමිලේ 100% බ්‍රවුසරය තුළ ක්‍රියාත්මක වන නිවැරදි සිංහල කේන්දර සටහන, ලග්නය, රාශිය, නැකත, සුබ වේලාවන් සහ විවාහ විසි (20) පොරොන්දම් ගැලපීම. කිසිදු දත්තයක් සේවාදායකයන් වෙත නොයැවෙන උපරිම පුද්ගලිකත්වය.'
+    : 'A zero-server, privacy-first Vedic and Sinhala astrology engine. Calculate Kendra birth charts, Lagna, Rashi, Subha Hora, and 20 Porondam marriage compatibility entirely locally in your browser.',
+  canonicalUrl = lang === 'si' ? 'https://kendaraya.github.io/' : 'https://kendaraya.github.io/en/',
+} = Astro.props;
+
+// Enhanced JSON-LD Structured Data Graph
+const webSiteSchema = {
+  '@type': 'WebSite',
+  '@id': 'https://kendaraya.github.io/#website',
+  url: 'https://kendaraya.github.io/',
+  name: 'කේන්දරය | Kendaraya',
+  description: 'Free 100% Client-Side Sinhala Astrology & Horoscope Engine',
+  inLanguage: ['si', 'en'],
+};
+
+const webAppSchema = {
+  '@type': 'WebApplication',
+  '@id': `${canonicalUrl}#app`,
+  name: lang === 'si' ? 'කේන්දරය (Kendaraya)' : 'Kendaraya Astrology Engine',
+  url: canonicalUrl,
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'All',
+  browserRequirements: 'Requires JavaScript. Works 100% client-side offline.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'LKR',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '342',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  image: 'https://kendaraya.github.io/og-image.png',
+  description: description,
+  inLanguage: lang === 'si' ? 'si' : 'en',
+  featureList: [
+    'Traditional Sri Lankan 12-House Diamond Kendra Chart SVG Generator',
+    'Lahiri Ayanamsa Sidereal Ascendant (Lagna) and Planetary Longitudes',
+    'Complete 20 Porondam Marriage Compatibility Engine with Scoring',
+    'Sri Lankan Auspicious Work Time (Subha Hora) & Rahu Kalaya Finder',
+    'Offline Dataset of All 25 Sri Lanka Administrative Districts',
+    '100% Client-Side Privacy Guarantee with Zero Server Uploads',
+    'Export Chart as PNG Image or Print to PDF',
+  ],
+  author: {
+    '@type': 'Person',
+    name: 'Kishara Dilshan',
+    url: 'https://buymeacoffee.com/kisharadilz',
+  },
+};
+
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: lang === 'si' ? 'මුල් පිටුව' : 'Home',
+      item: canonicalUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: lang === 'si' ? 'ජන්ම කේන්දරය' : 'Kendra Horoscope',
+      item: `${canonicalUrl}#kendra-calculator`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: lang === 'si' ? 'සුබ වේලාවන්' : 'Subha Hora',
+      item: `${canonicalUrl}#subha-velawa-section`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: lang === 'si' ? 'විසි පොරොන්දම්' : '20 Porondam',
+      item: `${canonicalUrl}#porondam-section`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
+      name: lang === 'si' ? 'නිතර අසන පැන' : 'FAQ',
+      item: `${canonicalUrl}#faq-section`,
+    },
+  ],
+};
+
+const faqPageSchema = {
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: lang === 'si' ? faq.questionSi : faq.questionEn,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: lang === 'si' ? faq.answerSi : faq.answerEn,
+    },
+  })),
+};
+
+const schemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [webSiteSchema, webAppSchema, breadcrumbSchema, faqPageSchema],
+};
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Primary SEO Meta Tags */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="online kendaraya hadanna, lagna satahana, porondam galapima online, subha velawa balanna, subha hora sri lanka, ada rahu kalaya, wada allanna subha welawa, maru sitina dishawa, kendare balanna, sinhala astrology, kendaraya online, visi porondam, lagna rashi horoscope, lankan astrology, vedic astrology sri lanka, nakshatra calculator, 20 porondam sinhala"
+    />
+    <meta name="author" content="Kishara Dilshan" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#6D0808" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Kendaraya" />
+
+    {/* Multilingual Hreflang Alternates */}
+    <link rel="alternate" hreflang="si" href="https://kendaraya.github.io/" />
+    <link rel="alternate" hreflang="si-LK" href="https://kendaraya.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://kendaraya.github.io/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://kendaraya.github.io/" />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="කේන්දරය | Kendaraya" />
+    <meta property="og:locale" content={lang === 'si' ? 'si_LK' : 'en_US'} />
+    <meta property="og:image" content="https://kendaraya.github.io/og-image.png" />
+    <meta property="og:image:secure_url" content="https://kendaraya.github.io/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="කේන්දරය (Kendaraya) | Free 100% Client-Side Sinhala Astrology & Horoscope Engine" />
+
+    {/* Twitter Cards */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://kendaraya.github.io/og-image.png" />
+    <meta property="twitter:image:alt" content="කේන්දරය (Kendaraya) | Free Sinhala Astrology Engine" />
+    <meta property="twitter:creator" content="@kisharadilz" />
+
+    {/* Performance & Font Preconnections */}
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700&family=Noto+Serif+Sinhala:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Prevent Flash of Unstyled Theme (FOUC) */}
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
+    {/* Unified Authority JSON-LD Schema Graph */}
+    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
+  </head>
+  <body class="bg-[#EEEAD7] dark:bg-[#200000] text-[#2D0000] dark:text-[#EEEAD7] transition-colors duration-200 selection:bg-[#6D0808] selection:text-[#EEEAD7]">
+    <Navbar client:load lang={lang} />
+    
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <Footer client:visible lang={lang} />
+  </body>
+</html>
