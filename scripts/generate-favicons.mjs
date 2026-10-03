@@ -56,6 +56,48 @@ async function generateFavicons() {
       .toFile(outputPath);
     console.log(`Generated: ${target.file} (${target.size}x${target.size}px)`);
   }
+
+  // Generate multi-resolution favicon.ico (16x16, 32x32, 48x48)
+  const icoSizes = [16, 32, 48];
+  const pngBuffers = await Promise.all(
+    icoSizes.map(size =>
+      sharp(Buffer.from(svgContent))
+        .resize(size, size)
+        .png({ compressionLevel: 9 })
+        .toBuffer()
+    )
+  );
+
+  const numImages = pngBuffers.length;
+  const headerSize = 6;
+  const dirEntrySize = 16;
+  let offset = headerSize + numImages * dirEntrySize;
+
+  const header = Buffer.alloc(headerSize);
+  header.writeUInt16LE(0, 0); // reserved
+  header.writeUInt16LE(1, 2); // type 1 = icon (.ico)
+  header.writeUInt16LE(numImages, 4);
+
+  const dirEntries = [];
+  for (let i = 0; i < numImages; i++) {
+    const entry = Buffer.alloc(dirEntrySize);
+    const size = icoSizes[i];
+    const buf = pngBuffers[i];
+    entry.writeUInt8(size >= 256 ? 0 : size, 0); // width
+    entry.writeUInt8(size >= 256 ? 0 : size, 1); // height
+    entry.writeUInt8(0, 2); // color count
+    entry.writeUInt8(0, 3); // reserved
+    entry.writeUInt16LE(1, 4); // planes
+    entry.writeUInt16LE(32, 6); // bit count
+    entry.writeUInt32LE(buf.length, 8); // image size
+    entry.writeUInt32LE(offset, 12); // image offset
+    offset += buf.length;
+    dirEntries.push(entry);
+  }
+
+  const icoBuffer = Buffer.concat([header, ...dirEntries, ...pngBuffers]);
+  fs.writeFileSync(path.join(publicDir, 'favicon.ico'), icoBuffer);
+  console.log(`Generated: favicon.ico (${icoSizes.map(s => `${s}x${s}`).join(', ')})`);
 }
 
 generateFavicons()
