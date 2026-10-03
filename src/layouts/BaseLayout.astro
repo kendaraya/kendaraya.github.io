@@ -15,7 +15,7 @@ const {
   lang = 'si',
   title = lang === 'si'
     ? 'කේන්දරය (Kendaraya) | Free 100% Client-Side Sinhala Astrology & Horoscope Engine'
-    : 'Kendaraya | Free 100% Client-Side Sinhala Astrology & Horoscope Engine',
+    : 'කේන්දරය (Kendaraya) | Free 100% Client-Side Sinhala Astrology & Horoscope Engine',
   description = lang === 'si'
     ? 'නොමිලේ 100% බ්‍රවුසරය තුළ ක්‍රියාත්මක වන නිවැරදි සිංහල කේන්දර සටහන, ලග්නය, රාශිය, නැකත, සුබ වේලාවන් සහ විවාහ විසි (20) පොරොන්දම් ගැලපීම. කිසිදු දත්තයක් සේවාදායකයන් වෙත නොයැවෙන උපරිම පුද්ගලිකත්වය.'
     : 'A zero-server, privacy-first Vedic and Sinhala astrology engine. Calculate Kendra birth charts, Lagna, Rashi, Subha Hora, and 20 Porondam marriage compatibility entirely locally in your browser.',
@@ -27,7 +27,8 @@ const webSiteSchema = {
   '@type': 'WebSite',
   '@id': 'https://kendaraya.github.io/#website',
   url: 'https://kendaraya.github.io/',
-  name: 'කේන්දරය | Kendaraya',
+  name: 'කේන්දරය',
+  alternateName: ['Kendaraya', 'කේන්දරය (Kendaraya)'],
   description: 'Free 100% Client-Side Sinhala Astrology & Horoscope Engine',
   inLanguage: ['si', 'en'],
 };
@@ -133,8 +134,14 @@ const schemaGraph = {
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {/* Favicon & Touch Icons - Google Search Favicon Guidelines (multiples of 48px) */}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
     <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
 
@@ -163,7 +170,7 @@ const schemaGraph = {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="කේන්දරය | Kendaraya" />
+    <meta property="og:site_name" content="කේන්දරය" />
     <meta property="og:locale" content={lang === 'si' ? 'si_LK' : 'en_US'} />
     <meta property="og:image" content="https://kendaraya.github.io/og-image.png" />
     <meta property="og:image:secure_url" content="https://kendaraya.github.io/og-image.png" />
@@ -207,6 +214,18 @@ const schemaGraph = {
         document.documentElement.classList.remove('dark');
       }
     </script>
+
+    {/* Dedicated Google Search Site Name WebSite Schema */}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'කේන්දරය',
+        alternateName: ['Kendaraya', 'කේන්දරය (Kendaraya)'],
+        url: 'https://kendaraya.github.io/',
+      })}
+    />
 
     {/* Unified Authority JSON-LD Schema Graph */}
     <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
