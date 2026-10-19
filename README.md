@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB.svg?style=flat&logo=react&logoColor=black)](https://react.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![Privacy First](https://img.shields.io/badge/Privacy-100%25%20Client--Side-10B981.svg?style=flat)](https://kendaraya.github.io)
-[![BuyMeACoffee](https://img.shields.io/badge/Support-Buy%20Me%20A%20Coffee-FFDD00.svg?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/kisharadilz)
+[![Ko-fi](https://img.shields.io/badge/Support-Ko--fi-FF5E5B.svg?style=flat&logo=ko-fi&logoColor=white)](https://ko-fi.com/kishara)
 
 **Live Website:** [https://kendaraya.github.io](https://kendaraya.github.io)
 
@@ -118,7 +118,7 @@ npm run preview
 ## ☕ Support the Developer
 If you find this free, privacy-first open-source astrology tool valuable, consider supporting ongoing development:
 
-👉 **[Buy Me a Coffee](https://buymeacoffee.com/kisharadilz)**
+👉 **[Support on Ko-fi](https://ko-fi.com/kishara)**
 
 ---
 

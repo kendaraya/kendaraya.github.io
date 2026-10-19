@@ -122,15 +122,15 @@ export const Navbar: React.FC<NavbarProps> = ({ lang }) => {
             {isDark ? <Sun className="w-4 h-4 text-[#EEEAD7]" /> : <Moon className="w-4 h-4 text-[#6D0808]" />}
           </button>
 
-          {/* Buy Me a Coffee Support Button */}
+          {/* Ko-fi Support Button */}
           <a
-            href="https://buymeacoffee.com/kisharadilz"
+            href="https://ko-fi.com/kishara"
             target="_blank"
             rel="noopener noreferrer"
             className="px-3.5 py-1.5 rounded-lg bg-linear-to-r from-[#6D0808] to-[#8C1414] hover:from-[#540606] hover:to-[#6D0808] text-[#EEEAD7] font-semibold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
           >
             <Coffee className="w-3.5 h-3.5" />
-            <span>{lang === 'si' ? 'සහාය දක්වන්න' : 'Buy Me a Coffee'}</span>
+            <span>{lang === 'si' ? 'සහාය දක්වන්න' : 'Support on Ko-fi'}</span>
           </a>
         </div>
 
@@ -248,13 +248,13 @@ export const Navbar: React.FC<NavbarProps> = ({ lang }) => {
 
             {/* Support Developer Button */}
             <a
-              href="https://buymeacoffee.com/kisharadilz"
+              href="https://ko-fi.com/kishara"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-xl bg-linear-to-r from-[#6D0808] to-[#8C1414] hover:from-[#540606] hover:to-[#6D0808] text-[#EEEAD7] font-semibold text-xs flex items-center gap-2 shadow-md active:scale-95 transition-all"
             >
               <Coffee className="w-4 h-4" />
-              <span>{lang === 'si' ? 'සහාය දක්වන්න (Coffee)' : 'Buy Me a Coffee'}</span>
+              <span>{lang === 'si' ? 'සහාය දක්වන්න (Ko-fi)' : 'Support on Ko-fi'}</span>
             </a>
           </div>
         </div>

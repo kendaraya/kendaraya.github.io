@@ -71,13 +71,13 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </p>
             <div className="pt-2 flex flex-col gap-2">
               <a
-                href="https://buymeacoffee.com/kisharadilz"
+                href="https://ko-fi.com/kishara"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-[#6D0808] hover:bg-[#520606] text-[#EEEAD7] text-xs font-bold transition-all shadow-xs"
               >
                 <Coffee className="w-3.5 h-3.5" />
-                <span>Buy Me a Coffee</span>
+                <span>{lang === 'si' ? 'සහාය දක්වන්න (Ko-fi)' : 'Support on Ko-fi'}</span>
               </a>
 
               <a
